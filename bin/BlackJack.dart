@@ -11,6 +11,7 @@ void main() {
   List<int> playerHand = [];
   List<int> houseHand = [];
 Welcome();
+
 DeckOfCards();
 Shuffler(DeckOfCards());
 BuyIn();

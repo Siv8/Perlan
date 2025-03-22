@@ -17,9 +17,9 @@ import 'package:BlackJack/functions/functions.dart';
 
 int CheckWinner(List<int> playerHand, List<int> houseHand, int currentBankRoll, int currentBet){
   //Calculated player hand in blackJack
-  int playerTotal = calcHandTotal(playerHand);
+  int playerTotal = CalculateScore(playerHand);
   //Calculates houses hand in blackJack
-  int houseTotal = calcHouseHand(houseHand);
+  int houseTotal = CalculateScore(houseHand);
 
   //Player looses
   if (playerTotal > 21) {
@@ -41,5 +41,4 @@ int CheckWinner(List<int> playerHand, List<int> houseHand, int currentBankRoll, 
   if (houseTotal > playerTotal){
     return currentBankRoll;
   }
-}
 }

@@ -14,13 +14,23 @@ on what hand he has, his score and the hand of the house.
 hand before showdown.)
 
  */
+String GetCardNames(List<int> hand) {
+  return hand.map((card) => CardNamer(card)).join(', ');
+}
+
+
+
 void Status(List<int> playerHand, List<int> houseHand) {
+<<<<<<< Updated upstream
   List<int> playerCards = [];
   for(int playerCard = 0; playerCard <= playerHand.length; playerCard++){
     CardNamer(houseHand[playerCard]);
     CardNamer(playerHand[playerCard]);
     playerCards.add(playerCard);
   }
+=======
+  String playerCards = GetCardNames(playerHand);
+>>>>>>> Stashed changes
   int playerScore = CalculateScore(playerHand);
 
   String dealerVisibleCard = CardNamer(houseHand.first);

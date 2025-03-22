@@ -14,5 +14,10 @@ print(deck); // Should print [2, 3, 4]
 
 
 int DealCard(List<int> deck){
+  if (deck.isEmpty) {
+    throw Exception('Deck is empty. Cannot deal a card.');
+  }
+
+  return deck.removeAt(0); // Removes and returns the first item
 
 }

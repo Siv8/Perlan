@@ -45,4 +45,5 @@ void HitOrStay(List<int> playerHand, List<int> houseHand, List<int> deck){
       }
     }
   }
+  print(object)
 }

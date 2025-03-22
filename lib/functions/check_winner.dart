@@ -23,7 +23,7 @@ int CheckWinner(List<int> playerHand, List<int> houseHand, int currentBankRoll, 
 
   //Player looses
   if (playerTotal > 21) {
-    return currentBankRoll;
+    return currentBankRoll - currentBet;
   }
   //House looses
   if (houseTotal > 21){
@@ -36,9 +36,10 @@ int CheckWinner(List<int> playerHand, List<int> houseHand, int currentBankRoll, 
   //Player and house ties
   if (playerTotal == houseTotal){
     return currentBet;
+    return currentBankRoll;
   }
   //House wins
   if (houseTotal > playerTotal){
-    return currentBankRoll;
+    return currentBankRoll - currentBet;
   }
 }

@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:BlackJack/functions/deck_of_cards.dart';
+
 /*
 Create a function called Shuffler which takes a List of integer as an input
 and outputs a shuffled list of integers.
@@ -18,7 +20,6 @@ List<int> Shuffler(List<int> theList){
     shuffledList[i] = shuffledList[j];
     shuffledList[j] = temp;
   }
-
   return shuffledList;
 
 }

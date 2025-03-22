@@ -21,19 +21,21 @@ String GetCardNames(List<int> hand) {
 
 
 void Status(List<int> playerHand, List<int> houseHand) {
+  List<String> houseCards = [];
+  List<String> playerCards = [];
+  for(int i = 0; i < 2; i++){
+    houseCards.add(CardNamer(houseHand[i]));
+    playerCards.add(CardNamer(playerHand[i]));
 
-  List<int> playerCards = [];
-  for(int playerCard = 0; playerCard <= playerHand.length; playerCard++){
-    CardNamer(houseHand[playerCard]);
-    CardNamer(playerHand[playerCard]);
-    playerCards.add(playerCard);
   }
   int playerScore = CalculateScore(playerHand);
 
   String dealerVisibleCard = CardNamer(houseHand.first);
-
+  if(dealerVisibleCard.contains("A")){
+    print(houseHand);
+  }
   print('\n========== GAME STATUS ==========');
-  print('🧑 Your Hand: $playerCards');
+  print('🧑 Your Hand: $playerHand');
   print('🎯 Your Score: $playerScore');
   print('🏛️ House Shows: $dealerVisibleCard');
   print('=================================');

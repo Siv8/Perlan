@@ -37,7 +37,7 @@ int BuyIn(){
   int bet = 0;
   bool Betting = true;
   while(Betting) {
-
+    print("The buy in is $buyIn\nWhat would you like to bet?");
     String BuyIn = stdin.readLineSync() ?? '';
     try {
       bet = int.parse(BuyIn);

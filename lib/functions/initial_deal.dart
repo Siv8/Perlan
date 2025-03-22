@@ -23,5 +23,10 @@ print(dealerHand); // Should print [2, 4]
  */
 
 void InitialDeal(List<int> playerHand, List<int> houseHand, List<int> deck){
+  DrawCard(playerHand, deck);  // Player gets 1st card
+  DrawCard(houseHand, deck);   // Dealer gets 1st card
+  DrawCard(playerHand, deck);  // Player gets 2nd card
+  DrawCard(houseHand, deck);   // Dealer gets 2nd card
+}
 
 }

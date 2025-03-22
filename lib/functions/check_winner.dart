@@ -41,4 +41,5 @@ int CheckWinner(List<int> playerHand, List<int> houseHand, int currentBankRoll, 
   if (houseTotal > playerTotal){
     return currentBankRoll - currentBet;
   }
+  return 0;
 }

@@ -21,16 +21,13 @@ String GetCardNames(List<int> hand) {
 
 
 void Status(List<int> playerHand, List<int> houseHand) {
-<<<<<<< Updated upstream
+
   List<int> playerCards = [];
   for(int playerCard = 0; playerCard <= playerHand.length; playerCard++){
     CardNamer(houseHand[playerCard]);
     CardNamer(playerHand[playerCard]);
     playerCards.add(playerCard);
   }
-=======
-  String playerCards = GetCardNames(playerHand);
->>>>>>> Stashed changes
   int playerScore = CalculateScore(playerHand);
 
   String dealerVisibleCard = CardNamer(houseHand.first);

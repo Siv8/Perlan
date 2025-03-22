@@ -17,5 +17,11 @@ print(hand); // Should print [1]
  */
 
 void DrawCard(List<int> hand, List<int> deck){
+  if (deck.isEmpty) {
+    throw Exception('Deck is empty. Cannot draw a card.');
+  }
+
+  int card = deck.removeAt(0); // Deal the first card from deck
+  hand.add(card);             // Add the card to the hand
 
 }

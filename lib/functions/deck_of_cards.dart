@@ -9,6 +9,15 @@ Make this function return the List of integers.
  */
 
 List<int> DeckOfCards(){
+  List<int> deck = [];
+
+  for (int i = 1; i <= 13; i++) {
+    for (int j = 0; j < 4; j++) {
+      deck.add(i);
+    }
+  }
+
+  return deck;
 
 }
 

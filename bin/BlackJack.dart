@@ -6,5 +6,6 @@ import 'package:BlackJack/lib.dart';
  */
 
 void main() {
-welcom();
+  Welcome();
+
 }

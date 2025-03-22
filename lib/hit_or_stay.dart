@@ -22,5 +22,27 @@ If he busts after drawing this card, break the loop as well.
  */
 
 void HitOrStay(List<int> playerHand, List<int> houseHand, List<int> deck){
+  while (true) {
+    // ✅ Correct OptionSelect usage
+    int choiceIndex = OptionSelect('What would you like to do?', ['Hit', 'Stay']);
+    String choice = (choiceIndex == 0) ? 'hit' : 'stay';
 
+    if (choice == 'stay') {
+      print('🛑 You chose to stay.');
+      break;
+    }
+
+    if (choice == 'hit') {
+      int card = DealCard(deck);
+      playerHand.add(card);
+      print('🃏 You drew: ${CardNamer(card)}');
+
+      Status(playerHand, houseHand);
+
+      if (CheckIfBusted(playerHand)) {
+        print('💥 You busted! Your turn is over.');
+        break;
+      }
+    }
+  }
 }

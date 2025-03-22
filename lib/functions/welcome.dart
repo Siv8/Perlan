@@ -23,8 +23,5 @@ void Welcome(){
      Try your luck, beat the dealer, and win big!
      Get ready to hit!
      
-  ♠️ ♦️ ♣️ ♥️ Let’s deal the cards and start the game! ♠️ ♦️ ♣️ ♥️
-
-  ''')
-
+  ♠️ ♦️ ♣️ ♥️ Let’s deal the cards and start the game! ♠️ ♦️ ♣️ ♥️''');
 }

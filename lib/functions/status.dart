@@ -16,7 +16,7 @@ hand before showdown.)
  */
 void Status(List<int> playerHand, List<int> houseHand) {
   String playerCards = CardNamer(playerHand);
-  int playerScore = Score(playerHand);
+  int playerScore = CalculateScore(playerHand);
 
   String dealerVisibleCard = CardNamer([houseHand.first]);
 

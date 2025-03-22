@@ -18,18 +18,24 @@ that the function will simply ask the user again to input an answer?
 
  */
 
-int OptionSelect(String statement, List<String> options){
-  print(statement);
-  for(int i = 0; i < options.length; i++){
-    print("${i+1}. ${options[i]}");
+int OptionSelect(String statement, List<String> options) {
+  while (true) {
+    print('\n$statement');
+    for (int i = 0; i < options.length; i++) {
+      print('[${i + 1}] ${options[i]}');
+    }
+
+    stdout.write('Enter the number of your choice: ');
+    String? input = stdin.readLineSync();
+
+    // Try to parse input
+    int? choice = int.tryParse(input ?? '');
+
+    // Validate input
+    if (choice != null && choice >= 1 && choice <= options.length) {
+      return choice - 1; // Return zero-based index
+    } else {
+      print('❌ Invalid input. Please select a valid option number.');
+    }
   }
-  String? input = stdin.readLineSync()!;
-  if (input.contains("1")){
-    print("Hit");
-  }else if (input.contains("2")){
-    print("Stay");
-  }else if(input.isEmpty || int.parse(input) > options.length){
-    print("Please select a valid option.");
-  }
-  return int.parse(input);
 }

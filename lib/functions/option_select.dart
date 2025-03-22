@@ -28,8 +28,6 @@ int OptionSelect(String statement, List<String> options){
     print("Hit");
   }else if (input.contains("2")){
     print("Stay");
-  }else if (input.contains("3")){
-    print("Bet");
   }else if(input.isEmpty || int.parse(input) > options.length){
     print("Please select a valid option.");
   }

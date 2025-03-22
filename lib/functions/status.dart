@@ -1,5 +1,6 @@
 import 'score_function.dart';
 import 'card_namer.dart';
+import 'package:BlackJack/hit_or_stay.dart';
 
 /*
 Create a function that prints the current "Status" of the match,
@@ -15,5 +16,6 @@ hand before showdown.)
 
  */
 void Status(List<int> playerHand, List<int> houseHand){
-
+  print(playerHand);
+  print(houseHand[0]);
 }

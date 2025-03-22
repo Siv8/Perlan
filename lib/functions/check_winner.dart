@@ -16,5 +16,30 @@ of the user, which should have decreased/increased based on if he won or not.
 import 'package:BlackJack/functions/functions.dart';
 
 int CheckWinner(List<int> playerHand, List<int> houseHand, int currentBankRoll, int currentBet){
+  //Calculated player hand in blackJack
+  int playerTotal = calcHandTotal(playerHand);
+  //Calculates houses hand in blackJack
+  int houseTotal = calcHouseHand(houseHand);
 
+  //Player looses
+  if (playerTotal > 21) {
+    return currentBankRoll;
+  }
+  //House looses
+  if (houseTotal > 21){
+    return currentBankRoll + currentBet; //check if this return the player his bet and more
+  }
+  //Player wins
+  if (playerTotal > houseTotal){
+    return currentBankRoll + currentBet; //check if this return the player his bet and more
+  }
+  //Player and house ties
+  if (playerTotal == houseTotal){
+    return currentBet;
+  }
+  //House wins
+  if (houseTotal > playerTotal){
+    return currentBankRoll;
+  }
+}
 }

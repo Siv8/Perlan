@@ -19,5 +19,19 @@ that the function will simply ask the user again to input an answer?
  */
 
 int OptionSelect(String statement, List<String> options){
-
+  print(statement);
+  for(int i = 0; i < options.length; i++){
+    print("${i+1}. ${options[i]}");
+  }
+  String? input = stdin.readLineSync()!;
+  if (input.contains("1")){
+    print("Hit");
+  }else if (input.contains("2")){
+    print("Stay");
+  }else if (input.contains("3")){
+    print("Bet");
+  }else if(input.isEmpty || int.parse(input) > options.length){
+    print("Please select a valid option.");
+  }
+  return int.parse(input);
 }

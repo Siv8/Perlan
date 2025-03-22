@@ -24,6 +24,10 @@ gets the score 1. So if the method gets the hand [1, 1] the score would be 12
 
 
 
-int CalculateScore(List<int> hand){
-
+int CalculateScore(List<int> hand) {
+  int totalScore = 0;
+  for (int score in hand) {
+    totalScore += score;
+  }
+  return totalScore;
 }

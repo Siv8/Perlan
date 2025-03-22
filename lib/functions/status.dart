@@ -14,6 +14,15 @@ on what hand he has, his score and the hand of the house.
 hand before showdown.)
 
  */
-void Status(List<int> playerHand, List<int> houseHand){
+void Status(List<int> playerHand, List<int> houseHand) {
+  String playerCards = CardNamer(playerHand);
+  int playerScore = Score(playerHand);
 
+  String dealerVisibleCard = CardNamer([houseHand.first]);
+
+  print('\n========== GAME STATUS ==========');
+  print('🧑 Your Hand: $playerCards');
+  print('🎯 Your Score: $playerScore');
+  print('🏛️ House Shows: $dealerVisibleCard');
+  print('=================================');
 }

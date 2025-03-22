@@ -29,4 +29,3 @@ void InitialDeal(List<int> playerHand, List<int> houseHand, List<int> deck){
   DrawCard(houseHand, deck);   // Dealer gets 2nd card
 }
 
-}

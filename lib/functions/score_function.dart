@@ -26,8 +26,26 @@ gets the score 1. So if the method gets the hand [1, 1] the score would be 12
 
 int CalculateScore(List<int> hand) {
   int totalScore = 0;
-  for (int score in hand) {
-    totalScore += score;
+  int aceCount = 0;
+
+  for (int card in hand) {
+    if (card == 1) {
+      // Ace: treat as 11 initially
+      totalScore += 11;
+      aceCount++;
+    } else if (card >= 11 && card <= 13) {
+      // Face cards: Jack, Queen, King → 10 points
+      totalScore += 10;
+    } else {
+      totalScore += card;
+    }
   }
+
+  // Adjust Aces if total goes over 21
+  while (totalScore > 21 && aceCount > 0) {
+    totalScore -= 10; // Treat one Ace as 1 instead of 11
+    aceCount--;
+  }
+
   return totalScore;
 }

@@ -20,7 +20,7 @@ Example inputs
 
 
 bool CheckIfBusted(List<int> hand){
-  if(CalculateScore(hand) >= 21){
+  if(CalculateScore(hand) > 21){
     return true;
   }
   return false;

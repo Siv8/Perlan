@@ -14,29 +14,23 @@ on what hand he has, his score and the hand of the house.
 hand before showdown.)
 
  */
-String GetCardNames(List<int> hand) {
-  return hand.map((card) => CardNamer(card)).join(', ');
-}
-
-
-
-void Status(List<int> playerHand, List<int> houseHand) {
+void Status(List<List<int>> playerHands, List<int> houseHand) {
   List<String> houseCards = [];
-  List<String> playerCards = [];
-  for(int i = 0; i < 2; i++){
-    houseCards.add(CardNamer(houseHand[i]));
-    playerCards.add(CardNamer(playerHand[i]));
+  String dealerVisibleCard = CardNamer(houseHand.first); // The visible card
 
-  }
-  int playerScore = CalculateScore(playerHand);
-
-  String dealerVisibleCard = CardNamer(houseHand.first);
-  if(dealerVisibleCard.contains("A")){
-    print(houseHand);
-  }
   print('\n========== GAME STATUS ==========');
-  print('🧑 Your Hand: $playerHand');
-  print('🎯 Your Score: $playerScore');
+
+  // Display each player hand
+  for (int i = 0; i < playerHands.length; i++) {
+    List<int> hand = playerHands[i];
+    int playerScore = CalculateScore(hand);
+    String handCards = hand.map((card) => CardNamer(card)).join(', ');
+
+    print('🧑 Hand ${i + 1}: [$handCards]');
+    print('🎯 Your Score for Hand ${i + 1}: $playerScore');
+  }
+
+  // Show only one house card
   print('🏛️ House Shows: $dealerVisibleCard');
   print('=================================');
 }

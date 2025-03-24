@@ -18,40 +18,52 @@ Can you design the function such that it will ask the user again if
 he doesn't input a integer?
  */
 
-int PlaceBet(int bankRoll){
-  print("Place a bet!");
-  String bet = stdin.readLineSync()?? "";
-  int parsedBet = 0;
+int PlaceBet(int currentBank) {
+  int bet = 0;
+  bool validBet = false;
 
-  try {
-    parsedBet = int.parse(bet);
-    print("You bet $parsedBet");
-  }catch(e){
-    print("Please type a number for the bet you would like to place!");
+  while (!validBet) {
+    stdout.write("Place your bet: ");
+    String? input = stdin.readLineSync();
+
+    try {
+      bet = int.parse(input ?? '');
+      if (bet <= 0) {
+        print("❌ You must bet more than 0!");
+      } else if (bet > currentBank) {
+        print("❌ You can't bet more than you have!");
+      } else {
+        validBet = true;
+      }
+    } catch (e) {
+      print("❌ Invalid input. Please enter a valid number.");
+    }
   }
-  return parsedBet;
+
+  print("✅ You bet $bet");
+  return bet;
 }
 
-int BuyIn(){
-  int buyIn = 10;
-  int bet = 0;
-  bool Betting = true;
-  while(Betting) {
-    print("The buy in is $buyIn\nWhat would you like to bet?");
-    String BuyIn = stdin.readLineSync() ?? '';
+int BuyIn() {
+  int buyIn = 0;
+  bool validInput = false;
+
+  while (!validInput) {
+    stdout.write("🎲 How much would you like to buy in with? ");
+    String? input = stdin.readLineSync();
+
     try {
-      bet = int.parse(BuyIn);
+      buyIn = int.parse(input ?? '');
+      if (buyIn <= 0) {
+        print("❌ Buy-in must be greater than 0.");
+      } else {
+        validInput = true;
+      }
     } catch (e) {
-      print('Please enter buy in number!');
-    }
-    if (bet <= buyIn) {
-      print("Cannot place a bet lower than buy in");
-      print("Please place a valid bet!");
-      continue;
-    } else if(bet >= buyIn){
-      print("You placed $bet for buy in");
-      break;
+      print("❌ Invalid input. Please enter a number.");
     }
   }
-  return bet;
+
+  print("✅ You bought in with $buyIn chips.");
+  return buyIn;
 }

@@ -28,6 +28,7 @@ int CalculateScore(List<int> hand) {
   int totalScore = 0;
   int aceCount = 0;
 
+  // Loop through the hand to calculate total score
   for (int card in hand) {
     if (card == 1) {
       // Ace: treat as 11 initially

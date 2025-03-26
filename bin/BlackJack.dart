@@ -10,6 +10,7 @@ import 'package:BlackJack/lib.dart';
 void main() {
   Welcome();
   int bank = BuyIn(); // Set the initial bank here, only once
+  int initialBank = bank; // Track the initial buy-in amount
   bool playAgain = true;
 
   // Game loop
@@ -33,6 +34,18 @@ void main() {
     if (input?.toLowerCase() != 'y') {
       playAgain = false;  // Exit the loop and end the game
     }
+  }
+
+  // Calculate the profit or loss
+  int profitOrLoss = bank - initialBank;
+
+  // Print the result in big red letters
+  if (profitOrLoss > 0) {
+    print('\x1B[31m🎉 WINNER! 🎉 You gained $profitOrLoss chips!\x1B[0m');
+  } else if (profitOrLoss < 0) {
+    print('\x1B[31m💥 LOSS 💥 You lost ${-profitOrLoss} chips.\x1B[0m');
+  } else {
+    print('\x1B[31m🤝 It\'s a tie! No profit or loss.\x1B[0m');
   }
 
   print("Thank you for playing! Your final bank is $bank.");

@@ -41,7 +41,7 @@ void main() {
 
   // Print the result in big red letters
   if (profitOrLoss > 0) {
-    print('\x1B[31m🎉 WINNER! 🎉 You gained $profitOrLoss chips!\x1B[0m');
+    print('\x1B[34m🎉 WINNER! 🎉 You gained $profitOrLoss chips!\x1B[0m');
   } else if (profitOrLoss < 0) {
     print('\x1B[31m💥 LOSS 💥 You lost ${-profitOrLoss} chips.\x1B[0m');
   } else {
